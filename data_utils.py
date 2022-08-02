@@ -9,7 +9,14 @@ pytorch에서 seed 값을 고정할 때 쓰입니다.
 from data_utils import seed_everything
 
 seed_everything(42)
-42 자리에 argparse.ArgumentParser()등을 이용해 args.seed를 넣기도 합니다.
+
+
+argparse.ArgumentParser()등을 이용해 다음과 같이 사용할 수도 있습니다.
+
+parser = argparse.ArgumentParser()
+parser.add_argument('--seed', type=int, default=42)
+args = parser.parse_args()
+seed_everything(args.seed)
 """
 def seed_everything(seed):
     torch.backends.cudnn.deterministic = True
