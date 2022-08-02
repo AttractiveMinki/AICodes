@@ -25,3 +25,11 @@ def seed_everything(seed):
     np.random.seed(seed)
     torch.manual_seed(seed)
     torch.cuda.manual_seed_all(seed)
+
+
+"""
+Pytorch에서 그래핔 카드를 사용할 수 있으면 그래픽카드를,
+사용할 수 없다면 cpu를 사용합니다.
+"""
+device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+
